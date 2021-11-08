@@ -19,17 +19,10 @@ class MainActivity : AppCompatActivity() {
         val bitmap = BitmapFactory.decodeResource(resources, R.drawable.pobrane)
         val bitmapCzerwony = BitmapFactory.decodeResource(resources, R.drawable.czerwony)
         val bitmapNiebieski = BitmapFactory.decodeResource(resources,R.drawable.blue)
+        val bitmapZielony = BitmapFactory.decodeResource(resources,R.drawable.green)
         val filterBitmap = Bitmap.createBitmap(bitmap.width,bitmap.height,Bitmap.Config.ARGB_8888)
 
-      /*  red.setOnClickListener {
-            val paint = Paint()
-            paint.alpha = 100
-            val canvas = Canvas(filterBitmap)
-            canvas.drawARGB(0,0,0,0)
-            canvas.drawBitmap(bitmapCzerwony, null, RectF(0f,0f,bitmap.width.toFloat(),bitmap.height.toFloat()),paint)
-            canvas.drawBitmap(bitmap,0f,0f,paint)
-            image.setImageBitmap(filterBitmap)
-        }*/
+
         red.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 val paint = Paint()
@@ -56,6 +49,25 @@ class MainActivity : AppCompatActivity() {
                 canvas.drawARGB(0, 0, 0, 0)
                 canvas.drawBitmap(
                     bitmapNiebieski,
+                    null,
+                    RectF(0f, 0f, bitmap.width.toFloat(), bitmap.height.toFloat()),
+                    paint
+                )
+                canvas.drawBitmap(bitmap, 0f, 0f, paint)
+                image.setImageBitmap(filterBitmap)
+            } else {
+                image.setImageBitmap(bitmap)
+            }
+
+        }
+        green.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                val paint = Paint()
+                paint.alpha = 100
+                val canvas = Canvas(filterBitmap)
+                canvas.drawARGB(0, 0, 0, 0)
+                canvas.drawBitmap(
+                    bitmapZielony,
                     null,
                     RectF(0f, 0f, bitmap.width.toFloat(), bitmap.height.toFloat()),
                     paint
