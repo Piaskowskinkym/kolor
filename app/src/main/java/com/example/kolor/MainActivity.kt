@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         
         val bitmap = BitmapFactory.decodeResource(resources, R.drawable.pobrane)
         val bitmapCzerwony = BitmapFactory.decodeResource(resources, R.drawable.czerwony)
+        val bitmapNiebieski = BitmapFactory.decodeResource(resources,R.drawable.blue)
         val filterBitmap = Bitmap.createBitmap(bitmap.width,bitmap.height,Bitmap.Config.ARGB_8888)
 
       /*  red.setOnClickListener {
@@ -54,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                 val canvas = Canvas(filterBitmap)
                 canvas.drawARGB(0, 0, 0, 0)
                 canvas.drawBitmap(
-                    bitmapCzerwony,
+                    bitmapNiebieski,
                     null,
                     RectF(0f, 0f, bitmap.width.toFloat(), bitmap.height.toFloat()),
                     paint
